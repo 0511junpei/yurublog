@@ -1,8 +1,4 @@
-import Container from "@/app/_components/container";
-import { EXAMPLE_PATH, GITHUB_ID, X_ID } from "@/lib/constants";
 import Link from "next/link";
-import XIcon from "./Icon/XIcon";
-import GitHubIcon from "./Icon/GitHubIcon";
 
 export function Footer() {
   return (

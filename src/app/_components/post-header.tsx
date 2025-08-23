@@ -1,8 +1,6 @@
-import Avatar from "./avatar";
 import Caption from "./caption";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
-import { PostTitle } from "@/app/_components/post-title";
 
 type Props = {
   title: string;
@@ -14,7 +12,7 @@ export function PostHeader({ title, coverImage, date }: Props) {
   return (
     <>
       <Caption caption={title}></Caption>
-      <div className="mb-8">
+      <div className="mb-8 mr-5 justify-items-end">
         <DateFormatter dateString={date}></DateFormatter>
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0 image-center">

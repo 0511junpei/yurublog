@@ -3,7 +3,7 @@
 }
 
 .markdown > * + * {
-  @apply mt-0 mb-4;
+  @apply mt-0 mb-1;
 }
 
 .markdown li + li {
