@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.content-max-height {
+  max-height: 720px;
+}
+
+.image-center {
+  text-align: -webkit-center;
+}
+
+footer {
+  position: sticky;
+  top: 100vh;
+}

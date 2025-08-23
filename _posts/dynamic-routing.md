@@ -1,19 +1,25 @@
 ---
-title: "Dynamic Routing and Static Generation"
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
+title: "Hello World! 当ブログについて"
+excerpt: ""
 coverImage: "/assets/blog/dynamic-routing/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
-author:
-  name: JJ Kasper
-  picture: "/assets/blog/authors/jj.jpeg"
 ogImage:
   url: "/assets/blog/dynamic-routing/cover.jpg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
+## 当ブログについて
 
-Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
+当ブログを閲覧いただきありがとうございます。
+このブログは管理人の語彙力向上や胸の内に秘めている物事を書き連ねた雑記ブログになります。
+従って誰かの何かの悩みを解決することに特化したブログではありません。
+眠れない夜や余暇の時間に楽しんでいただければ幸いです。
 
-## Lorem Ipsum
+## 管理人について自己紹介
 
-Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
+幼少期から電力で動くモノがずっと好きだった。電車やゲーム機、家電が大好き。電車の車種は全く興味なくて、そんなことよりモノが動く仕組みにずっと興味があった。
+高校生の頃にシステムエンジニア職に出会う。インフラの支えになっていたりシステムを通じて問題解決をする様に惹かれる。大学生の頃にプログラミングを学び始め、ピュアな心を持ちながら IT 業界に飛び込んだ。
+受託開発企業にプログラマー／システムエンジニアとして就職をすること 6 年、システムを納期までに作り続けて納品した後に利用者からのフィードバックや本当に問題解決が出来ているのかを感じることができない業務に物寂しさを覚え、転職を決意する。転職先は自社開発企業で 2025 年現在も就業中。社内システムエンジニアとして転職をして念願だった利用者の声を聞きながら開発できることに楽しさを感じる。
+ただしプレゼン慣れしていないのが結構きつい。自分に向いていることが何なのか未だにわからない。
+気づけばプロジェクトリーダーやマネジメントを行っているし人生何が起こるかわからない。
+日々やりがいを感じてはいるが、時には忙殺されていて追い込まれていることもある。
+プライベートな家を買ってローンという悪魔と契約した。

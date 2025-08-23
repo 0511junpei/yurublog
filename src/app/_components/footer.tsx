@@ -1,30 +1,62 @@
 import Container from "@/app/_components/container";
-import { EXAMPLE_PATH } from "@/lib/constants";
+import { EXAMPLE_PATH, GITHUB_ID, X_ID } from "@/lib/constants";
+import Link from "next/link";
+import XIcon from "./Icon/XIcon";
+import GitHubIcon from "./Icon/GitHubIcon";
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200 dark:bg-slate-800">
-      <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/app/building-your-application/routing/layouts-and-templates"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
+    <footer className="text-white body-font">
+      <div className="bg-green-500">
+        {/* <div className="container px-5 py-6 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium tracking-widest text-sm mb-3">
+                Legal
+              </h2>
+              <nav className="list-none mb-10">
+                <li>
+                  <Link href="/privacy-policy" className=" hover:text-gray-800">
+                    プライバシーポリシー
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/disclaimer" className=" hover:text-gray-800">
+                    免責事項
+                  </Link>
+                </li>
+                <li>
+                  <a className=" hover:text-gray-800">Third Link</a>
+                </li>
+                <li>
+                  <a className=" hover:text-gray-800">Fourth Link</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div> */}
+        <div className="container mx-auto py-2 px-5 flex flex-wrap flex-col">
+          <div className="m-auto">
+            <Link href="/privacy-policy" className="hover:underline px-3">
+              プライバシーポリシー
+            </Link>
+            <Link href="/disclaimer" className="hover:underline px-3">
+              免責事項
+            </Link>
+            <Link
+              href="https://forms.gle/LMuzKYkUB1CvhehV9"
+              className=" hover:underline px-3"
             >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
+              お問い合わせ
+            </Link>
+          </div>
+          <div className="">
+            <p className="text-sm text-center ">
+              © 2025 yurublog All Rights Reserved.
+            </p>
           </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

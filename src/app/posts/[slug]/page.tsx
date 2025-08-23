@@ -17,13 +17,11 @@ export default async function Post(props: Params) {
     return notFound();
   }
 
-  const content = await markdownToHtml(post.content || "");
+  // const content = await markdownToHtml(post.content || "");
 
   return (
     <main>
-      <Alert preview={post.preview} />
       <Container>
-        <Header />
         <article className="mb-32">
           <PostHeader
             title={post.title}
@@ -31,7 +29,7 @@ export default async function Post(props: Params) {
             date={post.date}
             author={post.author}
           />
-          <PostBody content={content} />
+          <PostBody content={post.content} />
         </article>
       </Container>
     </main>

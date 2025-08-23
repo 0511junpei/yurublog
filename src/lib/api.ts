@@ -4,11 +4,13 @@ import matter from "gray-matter";
 import { join } from "path";
 
 const postsDirectory = join(process.cwd(), "_posts");
+const legalDirectory = join(process.cwd(), "_legal");
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
+// TODO：本気で対応するならAPI分ける
 export function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
@@ -16,6 +18,14 @@ export function getPostBySlug(slug: string) {
   const { data, content } = matter(fileContents);
 
   return { ...data, slug: realSlug, content } as Post;
+}
+
+export function getLegal(path: string) {
+  const filename = path.replace(/\.md$/, "");
+  const fullPath = join(legalDirectory, `${filename}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const content = matter(fileContents);
+  return content;
 }
 
 export function getAllPosts(): Post[] {
@@ -26,3 +36,10 @@ export function getAllPosts(): Post[] {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
+
+export const getCoverImage = (path: string | undefined | null) => {
+  if (!path) {
+    return "/assets/dummy/dummy.png";
+  }
+  return path;
+};
