@@ -1,6 +1,4 @@
 import { ReactNode } from "react";
-import Caption from "./caption";
-import { SectionSeparator } from "./section-separator";
 
 type Props = {
   children?: ReactNode;
