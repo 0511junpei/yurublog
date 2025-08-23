@@ -19,7 +19,6 @@ export function Posts({ posts }: Props) {
               title={post.title}
               coverImage={getCoverImage(post.coverImage)}
               date={post.date}
-              author={post.author}
               slug={post.slug}
               excerpt={post.excerpt}
             />

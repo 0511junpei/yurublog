@@ -15,7 +15,7 @@ const Sidebar = () => {
     <>
       <Caption caption="プロフィール"></Caption>
       <div className="p-4">
-        <div className="mb-4 text-center opacity-90">
+        <div className="mb-4 text-center">
           <Image
             src="/assets/avater/avater.png"
             alt="サイトロゴ"
