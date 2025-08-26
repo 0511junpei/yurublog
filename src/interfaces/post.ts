@@ -1,4 +1,5 @@
-export type Post = {
+// 投稿の基本情報（マークダウンから取得する情報）
+export type PostBase = {
   slug: string;
   title: string;
   date: string;
@@ -7,5 +8,12 @@ export type Post = {
   content: string;
   preview?: boolean;
   previewNumber: number;
-  commentNumber: number;
 };
+
+// 投稿の動的情報（DBから取得）
+export type PostMetrics = {
+  views: number;
+  // comments: number;
+};
+
+export type postsWithMetrics = PostBase & PostMetrics;

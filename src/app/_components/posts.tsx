@@ -1,10 +1,10 @@
-import { Post } from "@/interfaces/post";
+import { postsWithMetrics } from "@/interfaces/post";
 import { PostPreview } from "./post-preview";
 import { getCoverImage } from "@/lib/api";
 import Caption from "./caption";
 
 type Props = {
-  posts: Post[];
+  posts: postsWithMetrics[];
 };
 
 export function Posts({ posts }: Props) {
@@ -21,6 +21,7 @@ export function Posts({ posts }: Props) {
               date={post.date}
               slug={post.slug}
               excerpt={post.excerpt}
+              views={post.views}
             />
           ))}
         </div>

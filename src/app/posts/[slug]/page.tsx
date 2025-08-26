@@ -1,11 +1,13 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "@/lib/api";
+import { getPostBySlug } from "@/lib/api";
+import { getPostsWithViews } from "@/lib/posts-with-views";
 import { CMS_NAME } from "@/lib/constants";
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
+import PostContent from "./PostContent";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -22,6 +24,7 @@ export default async function Post(props: Params) {
           title={post.title}
           coverImage={post.coverImage}
           date={post.date}
+          slug={post.slug}
         />
         <Container>
           <PostBody content={post.content} />
@@ -56,7 +59,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getPostsWithViews();
 
   return posts.map((post) => ({
     slug: post.slug,
