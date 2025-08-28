@@ -1,4 +1,4 @@
-import { db } from "@/lib/firebase/admin";
+import { realtimeDb as db } from "@/lib/firebase/admin";
 
 export async function incrementCounter(slug: string) {
   const counterRef = db.ref(`posts/${slug}/views`);

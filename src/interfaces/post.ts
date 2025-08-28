@@ -13,7 +13,6 @@ export type PostBase = {
 // 投稿の動的情報（DBから取得）
 export type PostMetrics = {
   views: number;
-  // comments: number;
 };
 
 export type postsWithMetrics = PostBase & PostMetrics;

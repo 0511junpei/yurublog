@@ -1,4 +1,5 @@
 import * as admin from "firebase-admin";
+import { DB_NAME } from "../constants";
 
 const accountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY || "";
 
@@ -15,6 +16,10 @@ if (!admin.apps.length) {
 }
 
 // Realtime Databaseへの参照を取得
-const db = admin.database();
+const realtimeDb = admin.database();
 
-export { db };
+// Firestoreへの参照を取得
+const firestoreDb = admin.firestore();
+
+// 両方の参照をエクスポート
+export { realtimeDb, firestoreDb };

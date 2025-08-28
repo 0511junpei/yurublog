@@ -1,3 +1,4 @@
+import Container from "./container";
 import { MarkDownContent } from "./markdown-content";
 
 type Props = {
@@ -5,5 +6,9 @@ type Props = {
 };
 
 export function PostBody({ content }: Props) {
-  return <MarkDownContent content={content}></MarkDownContent>;
+  return (
+    <Container>
+      <MarkDownContent content={content}></MarkDownContent>
+    </Container>
+  );
 }

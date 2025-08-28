@@ -1,4 +1,4 @@
-import PostContent from "../posts/[slug]/PostContent";
+import PostContent from "../posts/[slug]/post-content";
 import Caption from "./caption";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";

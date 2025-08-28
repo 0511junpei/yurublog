@@ -1,6 +1,6 @@
 "use client";
 
-import { db } from "@/lib/firebase/client";
+import { realtimeDb as db } from "@/lib/firebase/client";
 import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
