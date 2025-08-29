@@ -7,23 +7,41 @@ import { useEffect, useState } from "react";
 import Container from "./container";
 import useCommentForm from "@/hooks/useCommentForm";
 import { CommentFormData } from "@/interfaces/comment";
+import { Loading } from "./loading";
 
 type Props = {
   slug: string;
 };
 
 export function CommentForm({ slug }: Props) {
-  const [authorName, setAuthor] = useState("");
+  const MAX_LENGTH_COMMENT = 1000;
+  const [authorName, setAuthorName] = useState("");
   const [comment, setComment] = useState("");
-  const { submitComment, loading, error } = useCommentForm(slug);
+  const [inputError, setInputError] = useState<string | null>(null);
+  const { submitComment, isLoading, error } = useCommentForm(slug);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setInputError(null);
+
+    if (comment.trim() === "") {
+      setInputError("コメントは必須入力です");
+      return;
+    }
+    if (comment.length > MAX_LENGTH_COMMENT) {
+      setInputError(
+        `コメントは${MAX_LENGTH_COMMENT}文字以内で入力してください`
+      );
+      return;
+    }
     await submitComment({
       authorName: authorName,
       comment: comment,
     } as CommentFormData);
   };
+
+  const submitButtonCaption = () =>
+    isLoading ? <Loading color="white" /> : "コメント";
 
   return (
     <>
@@ -36,28 +54,33 @@ export function CommentForm({ slug }: Props) {
           type="text"
           value={authorName}
           maxLength={20}
-          onChange={(e) => setAuthor(e.target.value)}
+          disabled={isLoading}
+          onChange={(e) => setAuthorName(e.target.value)}
         />
       </div>
       <div className="mt-2">
+        {inputError && <p className="text-red-500">{inputError}</p>}
         <textarea
           id="comment"
           name="comment"
-          className="w-full bg-white rounded border border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 my-4 resize-none leading-6 transition-colors duration-200 ease-in-out"
-          maxLength={1000}
+          className={`w-full bg-white rounded border focus:border-green-400 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 my-4 resize-none leading-6 transition-colors duration-200 ease-in-out ${
+            inputError ? "border-red-400" : "border-gray-300"
+          }`}
+          maxLength={MAX_LENGTH_COMMENT}
           placeholder="コメントを追加"
           value={comment}
+          disabled={isLoading}
           onChange={(e) => setComment(e.target.value)}
         ></textarea>
       </div>
       <div className="text-right">
         <button
-          className="text-white bg-green-400 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 rounded text-lg"
+          className="text-white bg-green-400 border-0 py-2 px-6 focus:outline-none  rounded text-lg min-h-10"
           type="button"
           onClick={handleSubmit}
-          disabled={loading}
+          disabled={isLoading}
         >
-          {loading ? "送信中…" : "コメント"}
+          {submitButtonCaption()}
         </button>
       </div>
     </>

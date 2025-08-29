@@ -7,12 +7,11 @@ import { useEffect, useState } from "react";
 
 export function useCommentList(slug: string) {
   const [comments, setComments] = useState<CommentDisplay[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const commentsCollection = collection(db, `posts/${slug}/comments`);
     const q = query(commentsCollection, orderBy("timestamp", "desc"));
-    console.log(q);
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const newComments = snapshot.docs.map(
         (doc) =>
@@ -24,11 +23,11 @@ export function useCommentList(slug: string) {
           } as CommentDisplay)
       );
       setComments(newComments);
-      setLoading(false);
+      setIsLoading(false);
     });
 
     return () => unsubscribe();
   }, [slug]);
 
-  return { comments, loading };
+  return { comments, isLoading };
 }

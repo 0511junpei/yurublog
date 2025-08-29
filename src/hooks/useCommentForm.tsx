@@ -6,11 +6,11 @@ import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
 export default function useCommentForm(slug: string) {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const submitComment = async (form: CommentFormData) => {
-    setLoading(true);
+    setIsLoading(true);
     setError(null);
 
     try {
@@ -27,9 +27,9 @@ export default function useCommentForm(slug: string) {
     } catch (error) {
       setError("コメントの投稿に失敗しました");
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
-  return { submitComment, loading, error };
+  return { submitComment, isLoading, error };
 }

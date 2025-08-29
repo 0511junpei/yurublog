@@ -8,7 +8,7 @@ type Params = {
 };
 
 export async function POST(request: Request, { params }: Params) {
-  const { slug } = await params;
+  const { slug } = params;
   const { authorName, comment } = await request.json();
 
   if (!comment) {
