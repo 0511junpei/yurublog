@@ -2,10 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { realtimeDb as db } from "@/lib/firebase/admin";
 import { incrementCounter } from "@/utils/counter-utils";
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
-) {
+export async function POST(request: NextRequest, { params }: any) {
   const { slug } = params;
   const result = await incrementCounter(slug);
 
