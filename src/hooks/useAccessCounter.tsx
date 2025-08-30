@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function useAccessCounter(slug: string) {
   const [accessCount, setAccessCount] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function updateCounter() {
       const hasVisitedKey = `hasVisited-${slug}`;

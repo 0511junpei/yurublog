@@ -1,13 +1,10 @@
 import { NextResponse } from "next/server";
 import { firestoreDb as db } from "@/lib/firebase/admin";
 
-type Params = {
-  params: {
-    slug: string;
-  };
-};
-
-export async function POST(request: Request, { params }: Params) {
+export async function POST(
+  request: Request,
+  { params }: { params: { slug: string } }
+) {
   const { slug } = params;
   const { authorName, comment } = await request.json();
 
