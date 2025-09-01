@@ -3,7 +3,6 @@ import Caption from "./caption";
 import { CommentCount } from "./comment-count";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
-import Views from "./views";
 
 type Props = {
   title: string;

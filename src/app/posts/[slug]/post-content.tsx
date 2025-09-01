@@ -1,6 +1,5 @@
 "use client";
 
-import Views from "@/app/_components/views";
 import useAccessCounter from "@/hooks/useAccessCounter";
 import useCommentCount from "@/hooks/useCommentCount";
 

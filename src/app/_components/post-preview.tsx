@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
-import Views from "./views";
+import PostContent from "../posts/[slug]/post-content";
 
 type Props = {
   title: string;
@@ -32,7 +32,7 @@ export function PostPreview({
           </div>
           <p className="leading-relaxed text-lg">{title}</p>
           <div className="text-center">
-            <Views views={views} />
+            <PostContent slug={slug} />
           </div>
         </div>
       </Link>
