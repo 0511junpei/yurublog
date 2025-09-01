@@ -7,7 +7,7 @@ import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
-import PostContent from "./post-content";
+import PostContent from "../../_components/access-count";
 import { PostComments } from "@/app/_components/post-comments";
 
 export default async function Post(props: Params) {

@@ -13,7 +13,7 @@ const DateFormatter = ({ dateString }: Props) => {
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        className="size-6"
+        className="size-6 mr-1"
       >
         <path
           strokeLinecap="round"

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
-import PostContent from "../posts/[slug]/post-content";
+import PostContent from "./access-count";
 
 type Props = {
   title: string;

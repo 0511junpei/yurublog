@@ -17,7 +17,7 @@ const Header = () => {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center text-white">
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-xl font-bold justify-center">
           <Link className="mr-10 hover:underline" href="/">
-            <div className="flex flex-row">
+            <div className="flex flex-row items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -36,7 +36,7 @@ const Header = () => {
             </div>
           </Link>
           <Link className="mr-10 hover:underline" href="/">
-            <div className="flex flex-row">
+            <div className="flex flex-row items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -55,7 +55,7 @@ const Header = () => {
             </div>
           </Link>
           <Link className="mr-10 hover:underline" href="/">
-            <div className="flex flex-row">
+            <div className="flex flex-row items-center">
               <svg
                 className="size-6"
                 width="24"

@@ -1,4 +1,4 @@
-import PostContent from "../posts/[slug]/post-content";
+import PostContent from "./access-count";
 import Caption from "./caption";
 import { CommentCount } from "./comment-count";
 import CoverImage from "./cover-image";
