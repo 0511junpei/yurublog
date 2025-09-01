@@ -5,8 +5,9 @@ import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
 export default function useAccessCounter(slug: string) {
-  const [accessCount, setAccessCount] = useState<number | null>(null);
+  const [accessCount, setAccessCount] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     async function updateCounter() {
       const hasVisitedKey = `hasVisited-${slug}`;
@@ -23,16 +24,15 @@ export default function useAccessCounter(slug: string) {
     const counterRef = ref(db, `posts/${slug}/views`);
 
     const unsubscribe = onValue(counterRef, (snapshot) => {
-      const newCount = snapshot.val();
+      const newCount = snapshot.val() || 0;
       setAccessCount(newCount);
+      setIsLoading(false);
     });
 
     updateCounter();
 
-    return () => {
-      unsubscribe();
-    };
+    return () => unsubscribe();
   }, [slug]);
 
-  return accessCount || 0;
+  return { accessCount, isLoading };
 }

@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function PostContent({ slug }: Props) {
-  const viewCount = useAccessCounter(slug);
+  const { accessCount, isLoading } = useAccessCounter(slug);
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function PostContent({ slug }: Props) {
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
           <circle cx="12" cy="12" r="3"></circle>
         </svg>
-        {viewCount}
+        {accessCount}
       </span>
     </>
   );
