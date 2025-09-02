@@ -4,3 +4,5 @@ steps:
     args:
       - "-c"
       - "gcloud apphosting update-backends yurublog --env-vars-file=apphosting.yaml"
+options:
+  logging: CLOUD_LOGGING_ONLY
