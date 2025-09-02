@@ -1,0 +1,6 @@
+steps:
+  - name: "gcr.io/google.com/cloudsdk/cloud-sdk"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - "gcloud apphosting update-backends yurublog --env-vars-file=apphosting.yaml"
