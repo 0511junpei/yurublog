@@ -1,8 +1,13 @@
 steps:
-  - name: "us-central1-docker.pkg.dev/cloud-devrel-public/cloud-sdk/cloud-sdk"
-    entrypoint: "sh"
+  - name: "gcr.io/cloud-builders/docker"
     args:
-      - "-c"
-      - "gcloud apphosting update-backends yurublog --env-vars-file=apphosting.yaml"
+      [
+        "build",
+        "-t",
+        "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}",
+        ".",
+      ]
+images:
+  - "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}"
 options:
   logging: CLOUD_LOGGING_ONLY
