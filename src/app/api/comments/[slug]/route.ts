@@ -3,23 +3,32 @@ import { firestoreDb as db } from "@/lib/firebase/admin";
 
 export async function POST(request: NextRequest, { params }: any) {
   const { slug } = await params;
+  let body;
 
-  const getRequestBody = async () => {
+  if (request.headers.get("content-length") !== null) {
     try {
-      return await request.json();
+      body = await request.json();
     } catch (error) {
       console.error("Failed to parse JSON body:", error);
-      return null;
+      return NextResponse.json(
+        { message: "Invalid or empty JSON body." },
+        { status: 400 }
+      );
     }
-  };
+  }
 
-  const body = await getRequestBody();
-  if (!body) {
+  // bodyが正常にパースされたか確認
+  if (
+    !body ||
+    typeof body.authorName !== "string" ||
+    typeof body.comment !== "string"
+  ) {
     return NextResponse.json(
-      { message: "予期せぬエラーが発生しました" },
+      { message: "Missing required fields (authorName or comment)." },
       { status: 400 }
     );
   }
+
   const { authorName, comment } = body;
   if (!comment) {
     return NextResponse.json(
