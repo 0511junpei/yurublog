@@ -5,7 +5,10 @@ export async function POST(request: NextRequest, { params }: any) {
   const { slug } = await params;
   let body;
 
-  if (request.headers.get("content-length") !== null) {
+  if (
+    process.env.NODE_ENV !== "production" ||
+    request.headers.get("content-length") !== null
+  ) {
     try {
       body = await request.json();
     } catch (error) {
