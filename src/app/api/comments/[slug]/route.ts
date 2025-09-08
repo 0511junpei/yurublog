@@ -5,19 +5,16 @@ export async function POST(request: NextRequest, { params }: any) {
   const { slug } = params;
   let body;
 
-  try {
-    body = await (async () => {
-      if (request.headers && request.headers.get("content-length") !== null) {
-        return await request.json();
-      }
-      return null;
-    })();
-  } catch (error) {
-    console.error("Failed to parse JSON body:", error);
-    return NextResponse.json(
-      { message: "Invalid or empty JSON body." },
-      { status: 400 }
-    );
+  if (request) {
+    try {
+      body = await request.json();
+    } catch (error) {
+      console.error("Failed to parse JSON body:", error);
+      return NextResponse.json(
+        { message: "Invalid or empty JSON body." },
+        { status: 400 }
+      );
+    }
   }
 
   // bodyが正常にパースされたか確認
