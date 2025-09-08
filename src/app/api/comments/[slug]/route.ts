@@ -3,28 +3,23 @@ import { firestoreDb as db } from "@/lib/firebase/admin";
 
 export async function POST(request: NextRequest, { params }: any) {
   const { slug } = await params;
-  let body;
 
-  if (
-    request.headers.get("content-length") === null ||
-    request.headers.get("content-length") === "0"
-  ) {
+  const getRequestBody = async () => {
+    try {
+      return await request.json();
+    } catch (error) {
+      console.error("Failed to parse JSON body:", error);
+      return null;
+    }
+  };
+
+  const body = await getRequestBody();
+  if (!body) {
     return NextResponse.json(
       { message: "予期せぬエラーが発生しました" },
       { status: 400 }
     );
   }
-  try {
-    body = await request.json();
-    console.log("body=" + body);
-  } catch (error) {
-    console.error("Failed to parse JSON body:", error);
-    return NextResponse.json(
-      { message: "予期せぬエラーが発生しました" },
-      { status: 400 }
-    );
-  }
-
   const { authorName, comment } = body;
   if (!comment) {
     return NextResponse.json(
