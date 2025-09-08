@@ -5,7 +5,7 @@ export async function POST(request: NextRequest, { params }: any) {
   const { slug } = params;
   let body;
 
-  if (request) {
+  if (request.headers.get("x-firebase-instance-id-token")) {
     try {
       body = await request.json();
     } catch (error) {
