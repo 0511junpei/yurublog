@@ -13,7 +13,6 @@ export function Loading(props: Props) {
       ? "-400"
       : "";
   const size = !props.size ? 1 : props.size;
-  console.log(`bg-${color}${brightness}`);
   return (
     <div className="flex justify-center" aria-label="読み込み中">
       <div

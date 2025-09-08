@@ -2,19 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { firestoreDb as db } from "@/lib/firebase/admin";
 
 export async function POST(request: NextRequest, { params }: any) {
-  const { slug } = params;
+  const { slug } = await params;
   let body;
-
-  if (request.headers.get("content-length") === "0") {
-    console.error("bodyが空です");
-    return NextResponse.json(
-      { message: "予期せぬエラーが発生しました" },
-      { status: 400 }
-    );
-  }
-
   try {
     body = await request.json();
+    console.log("body=" + body);
   } catch (error) {
     console.error("Failed to parse JSON body:", error);
     return NextResponse.json(
@@ -22,8 +14,8 @@ export async function POST(request: NextRequest, { params }: any) {
       { status: 400 }
     );
   }
-  const { authorName, comment } = body;
 
+  const { authorName, comment } = body;
   if (!comment) {
     return NextResponse.json(
       { message: "フィールドが見つかりません" },
