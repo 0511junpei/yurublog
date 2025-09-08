@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { firestoreDb as db } from "@/lib/firebase/admin";
-import { parseRequestBody } from "./request-handler";
 
 export async function POST(request: NextRequest, { params }: any) {
   const { slug } = params;
   let body;
 
+  const { parseRequestBody } = await import("./request-handler");
   body = await parseRequestBody(request);
 
   // bodyが正常にパースされたか確認
