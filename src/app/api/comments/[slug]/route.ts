@@ -7,7 +7,9 @@ export async function POST(request: NextRequest, { params }: any) {
 
   if (
     process.env.NODE_ENV !== "production" ||
-    request.headers.get("content-length") !== null
+    (request &&
+      request.headers &&
+      request.headers.get("content-length") !== null)
   ) {
     try {
       body = await request.json();
