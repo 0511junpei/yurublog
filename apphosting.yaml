@@ -17,3 +17,5 @@ runConfig:
 env:
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
     secret: next-env
+  - variable: FIREBASE_SERVICE_ACCOUNT_KEY
+    secret: next-env
