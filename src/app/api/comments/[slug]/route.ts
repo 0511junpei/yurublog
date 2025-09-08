@@ -5,24 +5,22 @@ export async function POST(request: NextRequest, { params }: any) {
   const { slug } = params;
   let body;
 
-  if (request.headers.get("x-firebase-instance-id-token")) {
-    try {
+  try {
+    if (request.headers.get("x-firebase-instance-id-token")) {
       body = await request.json();
-    } catch (error) {
-      console.error("Failed to parse JSON body:", error);
-      return NextResponse.json(
-        { message: "Invalid or empty JSON body." },
-        { status: 400 }
-      );
+    } else {
+      body = null;
     }
+  } catch (error) {
+    console.error("Failed to parse JSON body:", error);
+    return NextResponse.json(
+      { message: "Invalid or empty JSON body." },
+      { status: 400 }
+    );
   }
 
   // bodyが正常にパースされたか確認
-  if (
-    !body ||
-    typeof body.authorName !== "string" ||
-    typeof body.comment !== "string"
-  ) {
+  if (!body) {
     return NextResponse.json(
       { message: "Missing required fields (authorName or comment)." },
       { status: 400 }
