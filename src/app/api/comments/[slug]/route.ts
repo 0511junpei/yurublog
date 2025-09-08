@@ -4,6 +4,16 @@ import { firestoreDb as db } from "@/lib/firebase/admin";
 export async function POST(request: NextRequest, { params }: any) {
   const { slug } = await params;
   let body;
+
+  if (
+    request.headers.get("content-length") === null ||
+    request.headers.get("content-length") === "0"
+  ) {
+    return NextResponse.json(
+      { message: "予期せぬエラーが発生しました" },
+      { status: 400 }
+    );
+  }
   try {
     body = await request.json();
     console.log("body=" + body);
