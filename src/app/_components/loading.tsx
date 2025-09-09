@@ -23,7 +23,7 @@ export function Loading(props: Props) {
       ></div>
       <div
         className={`animate-ping h-${size} w-${size} bg-${color}${brightness} rounded-full`}
-      ></div>{" "}
+      ></div>
     </div>
   );
 }

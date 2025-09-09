@@ -7,6 +7,7 @@ import "./globals.css";
 import Header from "./_components/header";
 import Container from "./_components/container";
 import Sidebar from "./_components/sidebar";
+import ToastProvider from "./_components/toast-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +33,7 @@ export default function RootLayout({
             <div className="py-4">
               <div className="grid grid-cols-1 md:grid-cols-7 gap-5 ">
                 <div className="col-span-5 item bg-white rounded-lg">
-                  {children}
+                  <ToastProvider>{children}</ToastProvider>
                 </div>
                 <div className="col-span-2 item bg-white rounded-lg mb-auto">
                   <Sidebar />

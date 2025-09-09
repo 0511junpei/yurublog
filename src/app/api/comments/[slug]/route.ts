@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { firestoreDb as db } from "@/lib/firebase/admin";
 
 export async function POST(request: NextRequest, { params }: any) {
-  const { slug } = params;
+  const { slug } = await params;
   let body;
 
   try {

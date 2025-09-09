@@ -8,6 +8,7 @@ import Container from "./container";
 import useCommentForm from "@/hooks/useCommentForm";
 import { CommentFormData } from "@/interfaces/comment";
 import { Loading } from "./loading";
+import { toast } from "react-toastify";
 
 type Props = {
   slug: string;
@@ -27,17 +28,25 @@ export function CommentForm({ slug }: Props) {
     if (comment.trim() === "") {
       setInputError("コメントは必須入力です");
       return;
-    }
-    if (comment.length > MAX_LENGTH_COMMENT) {
+    } else if (comment.length > MAX_LENGTH_COMMENT) {
       setInputError(
         `コメントは${MAX_LENGTH_COMMENT}文字以内で入力してください`
       );
       return;
     }
+
     await submitComment({
       authorName: authorName,
       comment: comment,
     } as CommentFormData);
+
+    if (error) {
+      toast.error(error);
+      return;
+    }
+    setAuthorName("");
+    setComment("");
+    toast.success("コメントの投稿が完了しました!");
   };
 
   const submitButtonCaption = () =>
@@ -58,12 +67,12 @@ export function CommentForm({ slug }: Props) {
           onChange={(e) => setAuthorName(e.target.value)}
         />
       </div>
-      <div className="mt-2">
+      <div className="mt-1">
         {inputError && <p className="text-red-500">{inputError}</p>}
         <textarea
           id="comment"
           name="comment"
-          className={`w-full bg-white rounded border focus:border-green-400 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 my-4 resize-none leading-6 transition-colors duration-200 ease-in-out ${
+          className={`w-full bg-white rounded border focus:border-green-400 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 my-1 resize-none leading-6 transition-colors duration-200 ease-in-out ${
             inputError ? "border-red-400" : "border-gray-300"
           }`}
           maxLength={MAX_LENGTH_COMMENT}
