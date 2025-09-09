@@ -5,15 +5,13 @@ export async function POST(request: NextRequest, { params }: any) {
   const { slug } = params;
   let body;
 
-  const { parseRequestBody } = await import("./request-handler");
-  body = await parseRequestBody(request);
-
-  // bodyが正常にパースされたか確認
-  if (!body) {
-    return NextResponse.json(
-      { message: "Missing required fields (authorName or comment)." },
-      { status: 400 }
-    );
+  try {
+    body = await request.json();
+    if (!body) {
+      throw new Error();
+    }
+  } catch (error) {
+    return NextResponse.json({ message: "システムエラー" }, { status: 400 });
   }
 
   const { authorName, comment } = body;
