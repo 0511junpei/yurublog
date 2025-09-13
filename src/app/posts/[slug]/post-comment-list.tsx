@@ -9,7 +9,7 @@ type Props = {
 
 export default function PostCommentList({ slug }: Props) {
   const { comments, isLoading } = useCommentList(slug);
-  const defaultAuthorName = "名無しの権兵衛";
+  const defaultAuthorName = "名無しさん";
   return (
     <div className="my-4 px-2 py-2">
       {isLoading ? (
