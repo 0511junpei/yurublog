@@ -15,7 +15,7 @@
 }
 
 .markdown strong {
-  @apply font-semibold;
+  @apply font-semibold bg-yellow-100;
 }
 
 .markdown a {
@@ -31,11 +31,23 @@
 }
 
 .markdown h2 {
-  @apply leading-tight border-b-2 text-2xl font-semibold mb-4 mt-6 pb-2 border-green-500;
+  @apply leading-tight border-b-2 text-2xl font-semibold mb-4 mt-6 pb-2 border-green-500 inline-block;
 }
 
 .markdown h3 {
-  @apply leading-snug text-lg font-semibold mb-4 mt-6;
+  @apply leading-snug text-lg font-semibold mb-4 mt-6 pb-2 ml-4 border-green-500 inline-block;
+}
+
+.markdown h3::before {
+  content: "■" !important;
+}
+
+.markdown h3 {
+  border-bottom-width: 1px !important;
+}
+
+.markdown h3 + p {
+  @apply ml-4 !important;
 }
 
 .markdown h4 {

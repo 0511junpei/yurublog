@@ -27,7 +27,7 @@ export function PostHeader({ title, coverImage, date, slug }: Props) {
         </div>
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0 image-center">
-        <div className="w-2/3">
+        <div className="w-10/12">
           <CoverImage title={title} src={coverImage} />
         </div>
       </div>
